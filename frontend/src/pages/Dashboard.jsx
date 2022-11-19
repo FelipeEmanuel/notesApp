@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import GoalForm from '../components/GoalForm'
 import GoalItem from '../components/GoalItem'
 import Spinner from '../components/Spinner'
+import {reset} from '../features/auth/authSlice'
 import {getGoals} from '../features/goals/goalSlice'
 
 function Dashboard() {
@@ -26,9 +27,9 @@ function Dashboard() {
     }
     
     //Tava dando loop infinito, n sei pq, quebrando o app
-    //return () => {
-      //dispatch(reset())
-    //}
+    return () => {
+      dispatch(reset())
+    }
   }, [user, navigate, isError, message, dispatch])
 
   if(isLoading){
